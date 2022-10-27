@@ -43,9 +43,7 @@
         </li> %>
       </ul>
       <ul class="navbar-nav">
-        <li>
-          <%= link_to 'About Us', '/about' %>
-        </li>
+        
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-danger"
@@ -63,18 +61,24 @@
             <li><%= link_to 'Categories', [:admin, :categories], class: "nav-link"%></li>
           </ul>
         </li>
+
+        <li class="nav-item">
+          <%= link_to 'About Us', '/about', class: "nav-link" %>
+        </li>
+        
         <li class="nav-item end-0">
           <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>
         </li>
 
+      <ul class="navbar-nav">
         
         <% if current_user %>
-        <li><%= link_to current_user.email %></li> 
-        <li><%= link_to "Logout", '/logout' %></li>
+        <li class="nav-item">Signed in as: <%= link_to current_user.email, class: "nav-link" %></li> 
+        <li class="nav-item"><%= link_to "Logout", '/logout', class: "nav-link" %></li>
       <% else %>
-        <li><%= link_to 'Login', '/login' %></li> 
-        <li> <%= link_to 'Signup', '/signup' %></li>
+        <li class="nav-item"><%= link_to 'Login', '/login', class: "nav-link" %></li> 
+        <li class="nav-item"> <%= link_to 'Signup', '/signup', class: "nav-link" %></li>
       <% end %>
 
 
